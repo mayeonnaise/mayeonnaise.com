@@ -6892,7 +6892,7 @@ var elm_explorations$webgl$WebGL$Texture$loadWith = F2(
 	});
 var elm_explorations$webgl$WebGL$Texture$load = elm_explorations$webgl$WebGL$Texture$loadWith(elm_explorations$webgl$WebGL$Texture$defaultOptions);
 var author$project$Main$init = _Utils_Tuple2(
-	{animateState: author$project$Main$Stationary, current: 0, displacement: 0, elapsed: 0, frame: 0, height: 644, maybeBackgroundImageTexture: elm$core$Maybe$Nothing, maybeBackgroundTexture: elm$core$Maybe$Nothing, maybeTexture: elm$core$Maybe$Nothing, target: 0, width: 1024},
+	{animateState: author$project$Main$Stationary, current: 0, displacement: 0, elapsed: 0, frame: 0, height: 512, maybeBackgroundImageTexture: elm$core$Maybe$Nothing, maybeBackgroundTexture: elm$core$Maybe$Nothing, maybeTexture: elm$core$Maybe$Nothing, target: 0, width: 1024},
 	elm$core$Platform$Cmd$batch(
 		_List_fromArray(
 			[
@@ -6931,7 +6931,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$BackgroundImageTextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('./assets/console_background.png')),
+				elm_explorations$webgl$WebGL$Texture$load('./assets/background_image.png')),
 				A2(
 				elm$core$Task$perform,
 				function (_n3) {
@@ -7641,7 +7641,7 @@ var elm_explorations$webgl$WebGL$Mesh3 = F2(
 	});
 var elm_explorations$webgl$WebGL$triangles = elm_explorations$webgl$WebGL$Mesh3(
 	{elemSize: 3, indexSize: 0, mode: 4});
-var author$project$Main$backgroundImageMesh = elm_explorations$webgl$WebGL$triangles(
+var author$project$Main$backgroundMesh = elm_explorations$webgl$WebGL$triangles(
 	_List_fromArray(
 		[
 			_Utils_Tuple3(
@@ -7649,7 +7649,7 @@ var author$project$Main$backgroundImageMesh = elm_explorations$webgl$WebGL$trian
 				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 0)
 			},
 			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 1024)
+				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 512)
 			},
 			{
 				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 0)
@@ -7659,10 +7659,10 @@ var author$project$Main$backgroundImageMesh = elm_explorations$webgl$WebGL$trian
 				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 0)
 			},
 			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 1024)
+				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 512)
 			},
 			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 1024)
+				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 512)
 			})
 		]));
 var author$project$Main$backgroundVertexShader = {
@@ -7712,6 +7712,9 @@ var elm$core$Tuple$second = function (_n0) {
 var elm$html$Html$a = _VirtualDom_node('a');
 var elm$html$Html$div = _VirtualDom_node('div');
 var elm$html$Html$img = _VirtualDom_node('img');
+var elm$html$Html$span = _VirtualDom_node('span');
+var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm$html$Html$Attributes$height = function (n) {
 	return A2(
 		_VirtualDom_attribute,
@@ -7957,7 +7960,7 @@ var author$project$Main$view = function (_n0) {
 											]),
 										author$project$Main$backgroundVertexShader,
 										author$project$Main$backgroundFragmentShader,
-										author$project$Main$backgroundImageMesh,
+										author$project$Main$backgroundMesh,
 										{
 											offset: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 0),
 											screenSize: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, width, height),
@@ -7979,7 +7982,7 @@ var author$project$Main$view = function (_n0) {
 										{
 											frame: frame,
 											frameSize: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 128, 256),
-											offset: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, current, 365),
+											offset: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, current, 310),
 											screenSize: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, width, height),
 											texture: spriteTexture,
 											textureSize: A2(
@@ -8016,10 +8019,20 @@ var author$project$Main$view = function (_n0) {
 								elm$html$Html$img,
 								_List_fromArray(
 									[
-										elm$html$Html$Attributes$src('assets/github_logo.png')
+										elm$html$Html$Attributes$src('assets/github_logo_white.png')
 									]),
 								_List_Nil)
 							]))
+					])),
+				A2(
+				elm$html$Html$span,
+				_List_fromArray(
+					[
+						A2(elm$html$Html$Attributes$style, 'margin-top', '1em')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Built with Elm and WebGL')
 					]))
 			]));
 };

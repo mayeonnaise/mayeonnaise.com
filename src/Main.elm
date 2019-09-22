@@ -85,7 +85,7 @@ main =
 init : ( Model, Cmd Action )
 init =
     ( { width = 1024
-      , height = 644
+      , height = 512
       , target = 0
       , current = 0
       , displacement = 0
@@ -117,7 +117,7 @@ init =
                         Ok val ->
                             BackgroundTextureLoad val
                 )
-        , Texture.load "./assets/console_background.png"
+        , Texture.load "./assets/background_image.png"
             |> Task.attempt
                 (\result ->
                     case result of
@@ -294,7 +294,7 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
                     [ Blend.add Blend.one Blend.oneMinusSrcAlpha ]
                     backgroundVertexShader
                     backgroundFragmentShader
-                    backgroundImageMesh
+                    backgroundMesh
                     { screenSize = vec2 width height
                     , offset = vec2 0 0
                     , texture = backgroundImageTexture
@@ -306,7 +306,7 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
                     fragmentShader
                     mesh
                     { screenSize = vec2 width height
-                    , offset = vec2 (current) 365
+                    , offset = vec2 (current) 310
                     , texture = spriteTexture
                     , frame = frame
                     , textureSize = vec2 (toFloat (Tuple.first (Texture.size spriteTexture))) (toFloat (Tuple.second (Texture.size spriteTexture)))
@@ -325,11 +325,14 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
                 [ Attributes.href "https://github.com/mayeonnaise"
                 ]
                 [ img
-                    [ Attributes.src "assets/github_logo.png"
+                    [ Attributes.src "assets/github_logo_white.png"
                     ]
                     []
                 ]
-            ]
+            ],
+        span [Attributes.style "margin-top" "1em"]
+            [text "Built with Elm and WebGL"]
+
     ]
 
 
