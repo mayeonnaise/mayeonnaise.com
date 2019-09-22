@@ -6892,7 +6892,7 @@ var elm_explorations$webgl$WebGL$Texture$loadWith = F2(
 	});
 var elm_explorations$webgl$WebGL$Texture$load = elm_explorations$webgl$WebGL$Texture$loadWith(elm_explorations$webgl$WebGL$Texture$defaultOptions);
 var author$project$Main$init = _Utils_Tuple2(
-	{animateState: author$project$Main$Stationary, current: 0, displacement: 0, elapsed: 0, frame: 0, height: 800, maybeBackgroundImageTexture: elm$core$Maybe$Nothing, maybeBackgroundTexture: elm$core$Maybe$Nothing, maybeTexture: elm$core$Maybe$Nothing, target: 0, width: 1024},
+	{animateState: author$project$Main$Stationary, current: 0, displacement: 0, elapsed: 0, frame: 0, height: 644, maybeBackgroundImageTexture: elm$core$Maybe$Nothing, maybeBackgroundTexture: elm$core$Maybe$Nothing, maybeTexture: elm$core$Maybe$Nothing, target: 0, width: 1024},
 	elm$core$Platform$Cmd$batch(
 		_List_fromArray(
 			[
@@ -6931,7 +6931,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$BackgroundImageTextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('./assets/console_outline.png')),
+				elm_explorations$webgl$WebGL$Texture$load('./assets/console_background.png')),
 				A2(
 				elm$core$Task$perform,
 				function (_n3) {
@@ -7665,30 +7665,6 @@ var author$project$Main$backgroundImageMesh = elm_explorations$webgl$WebGL$trian
 				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 1024)
 			})
 		]));
-var author$project$Main$backgroundMesh = elm_explorations$webgl$WebGL$triangles(
-	_List_fromArray(
-		[
-			_Utils_Tuple3(
-			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 0)
-			},
-			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 512)
-			},
-			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 0)
-			}),
-			_Utils_Tuple3(
-			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 0)
-			},
-			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 512)
-			},
-			{
-				position: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 1024, 512)
-			})
-		]));
 var author$project$Main$backgroundVertexShader = {
 	src: '\n        attribute vec2 position;\n        uniform vec2 screenSize;\n        uniform vec2 offset;\n        varying vec2 texturePos;\n        void main () {\n            vec2 clipSpace = (position + offset) / screenSize * 2.0 - 1.0;\n            gl_Position = vec4(clipSpace.x, -clipSpace.y, 0, 1);\n            texturePos = position;\n        }\n    ',
 	attributes: {position: 'position'},
@@ -7734,9 +7710,6 @@ var elm$core$Tuple$second = function (_n0) {
 	return y;
 };
 var elm$html$Html$div = _VirtualDom_node('div');
-var elm$html$Html$span = _VirtualDom_node('span');
-var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm$html$Html$Attributes$height = function (n) {
 	return A2(
 		_VirtualDom_attribute,
@@ -7918,6 +7891,7 @@ var author$project$Main$view = function (_n0) {
 			[
 				A2(elm$html$Html$Attributes$style, 'height', '100%'),
 				A2(elm$html$Html$Attributes$style, 'width', '100%'),
+				A2(elm$html$Html$Attributes$style, 'margin-top', '2em'),
 				A2(elm$html$Html$Attributes$style, 'display', 'flex'),
 				A2(elm$html$Html$Attributes$style, 'justify-content', 'space-evenly'),
 				A2(elm$html$Html$Attributes$style, 'align-items', 'center'),
@@ -7925,17 +7899,6 @@ var author$project$Main$view = function (_n0) {
 			]),
 		_List_fromArray(
 			[
-				A2(
-				elm$html$Html$span,
-				_List_fromArray(
-					[
-						A2(elm$html$Html$Attributes$style, 'margin-top', '2%'),
-						A2(elm$html$Html$Attributes$style, 'margin-bottom', '5%')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('MATTHEW YEO')
-					])),
 				A2(
 				elm_explorations$webgl$WebGL$toHtml,
 				_List_fromArray(
@@ -7964,24 +7927,6 @@ var author$project$Main$view = function (_n0) {
 								var backgroundImageTexture = _n1.c.a;
 								return _List_fromArray(
 									[
-										A5(
-										elm_explorations$webgl$WebGL$entityWith,
-										_List_fromArray(
-											[
-												A2(elm_explorations$webgl$WebGL$Settings$Blend$add, elm_explorations$webgl$WebGL$Settings$Blend$one, elm_explorations$webgl$WebGL$Settings$Blend$oneMinusSrcAlpha)
-											]),
-										author$project$Main$backgroundVertexShader,
-										author$project$Main$backgroundFragmentShader,
-										author$project$Main$backgroundMesh,
-										{
-											offset: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, 0, 57),
-											screenSize: A2(elm_explorations$linear_algebra$Math$Vector2$vec2, width, height),
-											texture: backgroundTexture,
-											textureSize: A2(
-												elm_explorations$linear_algebra$Math$Vector2$vec2,
-												elm_explorations$webgl$WebGL$Texture$size(backgroundTexture).a,
-												elm_explorations$webgl$WebGL$Texture$size(backgroundTexture).b)
-										}),
 										A5(
 										elm_explorations$webgl$WebGL$entityWith,
 										_List_fromArray(

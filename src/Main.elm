@@ -85,7 +85,7 @@ main =
 init : ( Model, Cmd Action )
 init =
     ( { width = 1024
-      , height = 800
+      , height = 644
       , target = 0
       , current = 0
       , displacement = 0
@@ -117,7 +117,7 @@ init =
                         Ok val ->
                             BackgroundTextureLoad val
                 )
-        , Texture.load "./assets/console_outline.png"
+        , Texture.load "./assets/console_background.png"
             |> Task.attempt
                 (\result ->
                     case result of
@@ -269,17 +269,13 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
     div
         [ Attributes.style "height" "100%"
         , Attributes.style "width" "100%"
+        , Attributes.style "margin-top" "2em"
         , Attributes.style "display" "flex"
         , Attributes.style "justify-content" "space-evenly"
         , Attributes.style "align-items" "center"
         , Attributes.style "flex-direction" "column"
         ]
-    [ span
-        [ Attributes.style "margin-top" "2%"
-        , Attributes.style "margin-bottom" "5%"
-        ]
-        [text "MATTHEW YEO"]
-    , WebGL.toHtml
+    [ WebGL.toHtml
         [ Attributes.width (round width)
         , Attributes.height (round height)
         ]
@@ -295,16 +291,6 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
 
             (Just spriteTexture, Just backgroundTexture, Just backgroundImageTexture) ->
                 [ WebGL.entityWith
-                    [ Blend.add Blend.one Blend.oneMinusSrcAlpha ]
-                    backgroundVertexShader
-                    backgroundFragmentShader
-                    backgroundMesh
-                    { screenSize = vec2 width height
-                    , offset = vec2 0 57
-                    , texture = backgroundTexture
-                    , textureSize = vec2 (toFloat (Tuple.first (Texture.size backgroundTexture))) (toFloat (Tuple.second (Texture.size backgroundTexture)))
-                    }
-                , WebGL.entityWith
                     [ Blend.add Blend.one Blend.oneMinusSrcAlpha ]
                     backgroundVertexShader
                     backgroundFragmentShader
