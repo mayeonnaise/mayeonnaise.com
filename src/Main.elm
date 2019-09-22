@@ -97,7 +97,7 @@ init =
       , animateState = Stationary
       }
     , Cmd.batch
-        [ Texture.load "assets/sprite_run_right.png"
+        [ Texture.load "./assets/sprite_run_right.png"
             |> Task.attempt
                 (\result ->
                     case result of
@@ -107,7 +107,7 @@ init =
                         Ok val ->
                             TextureLoad val
                 )
-        , Texture.load "assets/background.png"
+        , Texture.load "./assets/background.png"
             |> Task.attempt
                 (\result ->
                     case result of
@@ -117,7 +117,7 @@ init =
                         Ok val ->
                             BackgroundTextureLoad val
                 )
-        , Texture.load "assets/console_outline.png"
+        , Texture.load "./assets/console_outline.png"
             |> Task.attempt
                 (\result ->
                     case result of

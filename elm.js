@@ -6907,7 +6907,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$TextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('assets/sprite_run_right.png')),
+				elm_explorations$webgl$WebGL$Texture$load('./assets/sprite_run_right.png')),
 				A2(
 				elm$core$Task$attempt,
 				function (result) {
@@ -6919,7 +6919,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$BackgroundTextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('assets/background.png')),
+				elm_explorations$webgl$WebGL$Texture$load('./assets/background.png')),
 				A2(
 				elm$core$Task$attempt,
 				function (result) {
@@ -6931,7 +6931,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$BackgroundImageTextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('assets/console_outline.png')),
+				elm_explorations$webgl$WebGL$Texture$load('./assets/console_outline.png')),
 				A2(
 				elm$core$Task$perform,
 				function (_n3) {
