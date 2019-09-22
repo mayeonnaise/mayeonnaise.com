@@ -269,7 +269,7 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
     div
         [ Attributes.style "height" "100%"
         , Attributes.style "width" "100%"
-        , Attributes.style "margin-top" "2em"
+        , Attributes.style "margin-top" "1em"
         , Attributes.style "display" "flex"
         , Attributes.style "justify-content" "space-evenly"
         , Attributes.style "align-items" "center"
@@ -313,7 +313,23 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
                     , frameSize = vec2 128 256
                     }
                 ]
-        )
+        ),
+        div
+            [ Attributes.style "display" "flex"
+            , Attributes.style "justify-content" "space-evenly"
+            , Attributes.style "align-items" "center"
+            , Attributes.style "flex-direction" "row"
+            , Attributes.style "margin-top" "0.3em"
+            ]
+            [ a
+                [ Attributes.href "https://github.com/mayeonnaise"
+                ]
+                [ img
+                    [ Attributes.src "assets/github_logo.png"
+                    ]
+                    []
+                ]
+            ]
     ]
 
 

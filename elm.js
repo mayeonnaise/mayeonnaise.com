@@ -7709,12 +7709,34 @@ var elm$core$Tuple$second = function (_n0) {
 	var y = _n0.b;
 	return y;
 };
+var elm$html$Html$a = _VirtualDom_node('a');
 var elm$html$Html$div = _VirtualDom_node('div');
+var elm$html$Html$img = _VirtualDom_node('img');
 var elm$html$Html$Attributes$height = function (n) {
 	return A2(
 		_VirtualDom_attribute,
 		'height',
 		elm$core$String$fromInt(n));
+};
+var elm$json$Json$Encode$string = _Json_wrap;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var elm$html$Html$Attributes$src = function (url) {
+	return A2(
+		elm$html$Html$Attributes$stringProperty,
+		'src',
+		_VirtualDom_noJavaScriptOrHtmlUri(url));
 };
 var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
 var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
@@ -7891,7 +7913,7 @@ var author$project$Main$view = function (_n0) {
 			[
 				A2(elm$html$Html$Attributes$style, 'height', '100%'),
 				A2(elm$html$Html$Attributes$style, 'width', '100%'),
-				A2(elm$html$Html$Attributes$style, 'margin-top', '2em'),
+				A2(elm$html$Html$Attributes$style, 'margin-top', '1em'),
 				A2(elm$html$Html$Attributes$style, 'display', 'flex'),
 				A2(elm$html$Html$Attributes$style, 'justify-content', 'space-evenly'),
 				A2(elm$html$Html$Attributes$style, 'align-items', 'center'),
@@ -7969,7 +7991,36 @@ var author$project$Main$view = function (_n0) {
 							}
 						}
 					}
-				}())
+				}()),
+				A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						A2(elm$html$Html$Attributes$style, 'display', 'flex'),
+						A2(elm$html$Html$Attributes$style, 'justify-content', 'space-evenly'),
+						A2(elm$html$Html$Attributes$style, 'align-items', 'center'),
+						A2(elm$html$Html$Attributes$style, 'flex-direction', 'row'),
+						A2(elm$html$Html$Attributes$style, 'margin-top', '0.3em')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$a,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$href('https://github.com/mayeonnaise')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$img,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$src('assets/github_logo.png')
+									]),
+								_List_Nil)
+							]))
+					]))
 			]));
 };
 var elm$browser$Browser$element = _Browser_element;
