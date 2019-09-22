@@ -1,0 +1,11 @@
+{
+  "name": "project-friday",
+  "version": "1.0.0",
+  "description": "Personal website for Matthew Yeo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Yeo",
+  "license": "ISC"
+}
