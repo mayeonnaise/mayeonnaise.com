@@ -6907,7 +6907,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$TextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('sprite_run_right.png')),
+				elm_explorations$webgl$WebGL$Texture$load('assets/sprite_run_right.png')),
 				A2(
 				elm$core$Task$attempt,
 				function (result) {
@@ -6919,7 +6919,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$BackgroundTextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('background_small.png')),
+				elm_explorations$webgl$WebGL$Texture$load('assets/background.png')),
 				A2(
 				elm$core$Task$attempt,
 				function (result) {
@@ -6931,7 +6931,7 @@ var author$project$Main$init = _Utils_Tuple2(
 						return author$project$Main$BackgroundImageTextureLoad(val);
 					}
 				},
-				elm_explorations$webgl$WebGL$Texture$load('console_outline2.png')),
+				elm_explorations$webgl$WebGL$Texture$load('assets/console_outline.png')),
 				A2(
 				elm$core$Task$perform,
 				function (_n3) {
@@ -7560,7 +7560,6 @@ var author$project$Main$limitMousePosition = F2(
 		return (point < 20) ? 20 : ((point > 850) ? 850 : point);
 	});
 var author$project$Main$spriteWidth = 128;
-var elm$core$Debug$log = _Debug_log;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$Main$update = F2(
 	function (action, model) {
@@ -7612,10 +7611,7 @@ var author$project$Main$update = F2(
 			case 'Resize':
 				var width = action.a;
 				var target = model.current;
-				var displacement = A2(
-					elm$core$Debug$log,
-					'Modify:',
-					(A2(elm$core$Debug$log, 'New Width', width) - 1024) / 2);
+				var displacement = (width - 1024) / 2;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -7624,10 +7620,7 @@ var author$project$Main$update = F2(
 			default:
 				var width = action.a;
 				var target = 20;
-				var displacement = A2(
-					elm$core$Debug$log,
-					'Initial:',
-					(A2(elm$core$Debug$log, 'Width', width) - 1024) / 2);
+				var displacement = (width - 1024) / 2;
 				var current = 20;
 				return _Utils_Tuple2(
 					_Utils_update(
