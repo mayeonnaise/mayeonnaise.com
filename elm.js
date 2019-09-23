@@ -8003,7 +8003,7 @@ var author$project$Main$view = function (_n0) {
 						A2(elm$html$Html$Attributes$style, 'justify-content', 'space-evenly'),
 						A2(elm$html$Html$Attributes$style, 'align-items', 'center'),
 						A2(elm$html$Html$Attributes$style, 'flex-direction', 'row'),
-						A2(elm$html$Html$Attributes$style, 'margin-top', '0.3em')
+						A2(elm$html$Html$Attributes$style, 'margin-top', '1.5em')
 					]),
 				_List_fromArray(
 					[
@@ -8028,7 +8028,7 @@ var author$project$Main$view = function (_n0) {
 				elm$html$Html$span,
 				_List_fromArray(
 					[
-						A2(elm$html$Html$Attributes$style, 'margin-top', '1em')
+						A2(elm$html$Html$Attributes$style, 'margin-top', '1.6em')
 					]),
 				_List_fromArray(
 					[

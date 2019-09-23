@@ -319,7 +319,7 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
             , Attributes.style "justify-content" "space-evenly"
             , Attributes.style "align-items" "center"
             , Attributes.style "flex-direction" "row"
-            , Attributes.style "margin-top" "0.3em"
+            , Attributes.style "margin-top" "1.5em"
             ]
             [ a
                 [ Attributes.href "https://github.com/mayeonnaise"
@@ -330,7 +330,7 @@ view { width, height, current, maybeTexture, frame, maybeBackgroundTexture, mayb
                     []
                 ]
             ],
-        span [Attributes.style "margin-top" "1em"]
+        span [Attributes.style "margin-top" "1.6em"]
             [text "Built with Elm and WebGL"]
 
     ]
